@@ -72,9 +72,14 @@ export const IgnitionSequence: React.FC<IgnitionSequenceProps> = ({ onLaunched }
 
       <div className="relative z-10 max-w-3xl mx-auto w-full text-center">
         {/* Stage 3 Banner */}
-        <div className="inline-block bg-[#140810] border-2 border-[#ff007f] px-4 py-2 mb-6">
+        <div className="inline-block bg-[#140810] border-2 border-[#ff007f] px-4 py-2 mb-3">
           <span className="font-pixel text-[10px] text-[#ff007f] tracking-widest uppercase">
             ★ STAGE 03 // MAIN BOOSTER IGNITION SEQUENCE ★
+          </span>
+        </div>
+        <div className="mb-6">
+          <span className="inline-block bg-[#ff007f]/15 border border-[#ff007f] px-2.5 py-0.5 font-pixel text-[8px] text-[#ff007f]">
+            ● 3D BG: PART 04 // INTERSTAGE TRUSS & TITANIUM GRID FINS
           </span>
         </div>
 

@@ -16,8 +16,11 @@ export const StratosphereBuilds: React.FC = () => {
         {/* Stage 5 Arcade Banner */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
           <div>
-            <div className="font-pixel text-[10px] text-[#00f0ff] mb-2 tracking-widest">
+            <div className="font-pixel text-[10px] text-[#00f0ff] mb-1 tracking-widest">
               ★ STAGE 05 // STRATOSPHERE (12,000m - 50,000m) ★
+            </div>
+            <div className="inline-block bg-[#ffe600]/15 border border-[#ffe600] px-2 py-0.5 font-pixel text-[8px] text-[#ffe600] mb-2">
+              ● 3D BG: PART 06 // CORE BOOSTER FUSELAGE & CABLE RACEWAY
             </div>
             <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
               ROCKET FLEET & HARDWARE

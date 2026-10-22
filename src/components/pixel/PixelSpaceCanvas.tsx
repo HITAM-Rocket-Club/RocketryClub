@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { drawPixelAsteroid, drawPixelRocket, PALETTE } from '../../utils/pixelSprites';
+import { drawPixelAsteroid, PALETTE } from '../../utils/pixelSprites';
 
 interface PixelSpaceCanvasProps {
   scrollProgress: number; // 0 to 1
@@ -23,17 +23,13 @@ interface PixelAsteroidEntity {
   rotSpeed: number;
 }
 
-interface Spark {
-  x: number;
-  y: number;
-  life: number;
-  color: string;
-}
-
 export const PixelSpaceCanvas: React.FC<PixelSpaceCanvasProps> = ({ scrollProgress }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scrollRef = useRef(scrollProgress);
-  scrollRef.current = scrollProgress;
+
+  useEffect(() => {
+    scrollRef.current = scrollProgress;
+  }, [scrollProgress]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -77,10 +73,7 @@ export const PixelSpaceCanvas: React.FC<PixelSpaceCanvasProps> = ({ scrollProgre
       });
     }
 
-    const sparks: Spark[] = [];
     let animationId: number;
-    let flameFrame = 1;
-    let frameCounter = 0;
 
     const render = () => {
       animationId = requestAnimationFrame(render);
@@ -90,15 +83,8 @@ export const PixelSpaceCanvas: React.FC<PixelSpaceCanvasProps> = ({ scrollProgre
       // Force pixelated rendering
       ctx.imageSmoothingEnabled = false;
 
-      // Pitch Black Arcade Canvas
-      ctx.fillStyle = '#050505';
-      ctx.fillRect(0, 0, width, height);
-
-      // Frame cycle for stepped flame animation (every 8 frames)
-      frameCounter++;
-      if (frameCounter % 8 === 0) {
-        flameFrame = (flameFrame % 3) + 1;
-      }
+      // Transparent Canvas so 3D background rocket shines through
+      ctx.clearRect(0, 0, width, height);
 
       // 1. Draw 8-Bit Pixel Stars
       for (const s of stars) {
@@ -124,45 +110,6 @@ export const PixelSpaceCanvas: React.FC<PixelSpaceCanvasProps> = ({ scrollProgre
 
         drawPixelAsteroid(ctx, Math.floor(ast.x), Math.floor(ast.y), ast.size, ast.angle);
       }
-
-      // 3. Draw Ascending Rocket Sprite linked to scroll!
-      // Rocket sits on the right or center depending on viewport
-      const rocketX = width > 768 ? width * 0.88 : width * 0.5;
-      // Climbs up the screen as user scrolls (bounded from 85% to 15% height)
-      const rocketY = height * 0.85 - scrollRef.current * (height * 0.65);
-
-      // Spawn thruster sparks
-      if (Math.random() < 0.7) {
-        sparks.push({
-          x: rocketX + (Math.random() - 0.5) * 8,
-          y: rocketY + 36,
-          life: 16,
-          color: Math.random() > 0.5 ? PALETTE.yellow : PALETTE.orange,
-        });
-      }
-
-      // Render sparks
-      for (let i = sparks.length - 1; i >= 0; i--) {
-        const sp = sparks[i];
-        sp.y += 2.5;
-        sp.life--;
-        ctx.fillStyle = sp.color;
-        ctx.fillRect(Math.floor(sp.x), Math.floor(sp.y), 3, 3);
-        if (sp.life <= 0) sparks.splice(i, 1);
-      }
-
-      // Render Rocket Sprite (scale 3 for desktop, 2.5 for mobile)
-      const rocketScale = width > 768 ? 3 : 2.5;
-      drawPixelRocket(ctx, Math.floor(rocketX), Math.floor(rocketY), rocketScale, flameFrame, 0);
-
-      // Rocket altitude text tag next to ship
-      ctx.font = '10px "Press Start 2P", monospace';
-      ctx.fillStyle = PALETTE.yellow;
-      ctx.fillText(
-        `${Math.round(scrollRef.current * 100000)}m`,
-        Math.floor(rocketX) - 30,
-        Math.floor(rocketY) - 35
-      );
     };
 
     render();

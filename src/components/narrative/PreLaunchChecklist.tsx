@@ -62,8 +62,11 @@ export const PreLaunchChecklist: React.FC<PreLaunchChecklistProps> = ({ onAllVer
         {/* Stage 2 Arcade Banner */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
           <div>
-            <div className="font-pixel text-[10px] text-[#00ff66] mb-2 tracking-widest">
+            <div className="font-pixel text-[10px] text-[#00ff66] mb-1 tracking-widest">
               ★ STAGE 02 // FLIGHT COMPUTER VERIFICATION ★
+            </div>
+            <div className="inline-block bg-[#00ff66]/15 border border-[#00ff66] px-2 py-0.5 font-pixel text-[8px] text-[#00ff66] mb-2">
+              ● 3D BG: PART 03 // AVIONICS BAY, IMU & HELIUM COPV
             </div>
             <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
               PRE-LAUNCH CHECKLIST

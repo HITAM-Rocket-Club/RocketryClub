@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, Tv, Gamepad2, Coins } from 'lucide-react';
+import { Volume2, VolumeX, Tv, Gamepad2, Coins, HelpCircle } from 'lucide-react';
 import { soundFx } from '../../utils/audio';
 
 interface PixelArcadeNavProps {
@@ -9,6 +9,7 @@ interface PixelArcadeNavProps {
   crtEnabled: boolean;
   onToggleCrt: () => void;
   onOpenArcade: () => void;
+  onOpenTutorial: () => void;
   credits: number;
   onInsertCoin: () => void;
 }
@@ -20,6 +21,7 @@ export const PixelArcadeNav: React.FC<PixelArcadeNavProps> = ({
   crtEnabled,
   onToggleCrt,
   onOpenArcade,
+  onOpenTutorial,
   credits,
   onInsertCoin,
 }) => {
@@ -133,6 +135,19 @@ export const PixelArcadeNav: React.FC<PixelArcadeNavProps> = ({
             >
               <Gamepad2 className="w-3.5 h-3.5 text-black" />
               <span className="hidden sm:inline">PLAY</span>
+            </button>
+
+            {/* Mission Briefing / Tutorial Button */}
+            <button
+              onClick={() => {
+                soundFx.playStart();
+                onOpenTutorial();
+              }}
+              className="arcade-btn arcade-btn-magenta py-1.5 px-2.5 text-[9px] sm:text-[10px] flex items-center gap-1 hover:scale-105 active:scale-95"
+              title="Mission Briefing & Flight Guide"
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-black" />
+              <span className="hidden sm:inline">GUIDE</span>
             </button>
 
             {/* CRT Toggle */}

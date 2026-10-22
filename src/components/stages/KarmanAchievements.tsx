@@ -19,8 +19,11 @@ export const KarmanAchievements: React.FC = () => {
         {/* Stage 6 Arcade Banner */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
           <div>
-            <div className="font-pixel text-[10px] text-[#ffe600] mb-2 tracking-widest">
+            <div className="font-pixel text-[10px] text-[#ffe600] mb-1 tracking-widest">
               ★ STAGE 06 // KÁRMÁN LINE (50,000m - 100,000m) ★
+            </div>
+            <div className="inline-block bg-[#00ff66]/15 border border-[#00ff66] px-2 py-0.5 font-pixel text-[8px] text-[#00ff66] mb-2">
+              ● 3D BG: PART 07 // AERODYNAMIC FIN CANISTER & TVC GIMBAL
             </div>
             <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
               HIGH SCORES & MISSION RECORDS

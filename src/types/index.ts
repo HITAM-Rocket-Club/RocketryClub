@@ -44,12 +44,19 @@ export interface CrewMember {
   callsign: string;
   role: string;
   subsystem: string;
+  classYear?: string;
+  department?: string;
+  email?: string;
+  phone?: string;
+  github?: string;
+  linkedin?: string;
   since: string;
-  status: 'ACTIVE' | 'MISSION CONTROL' | 'FACULTY ADVISOR';
+  status: 'ACTIVE' | 'MISSION CONTROL' | 'FACULTY ADVISOR' | 'CORE LEAD';
   avatarInitials: string;
-  photoUrl?: string;
+  photoUrl: string;
   badge: string;
-  bio?: string;
+  bio: string;
+  skills?: string[];
 }
 
 export interface ChecklistItem {
@@ -71,3 +78,14 @@ export interface TelemetryState {
   gForce: number;
   mach: number;
 }
+
+export interface ClubPillar {
+  id: string;
+  code: string;
+  title: string;
+  summary: string;
+  whatWeDo: string[];
+  deliverables: string;
+  badgeColor: string;
+}
+

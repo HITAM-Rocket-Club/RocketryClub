@@ -38,8 +38,11 @@ export const JoinMissionSection: React.FC<JoinMissionSectionProps> = ({ onOpenAr
         {/* Stage 8 Arcade Banner */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
           <div>
-            <div className="font-pixel text-[10px] text-[#00ff66] mb-2 tracking-widest">
+            <div className="font-pixel text-[10px] text-[#00ff66] mb-1 tracking-widest">
               ★ STAGE 08 // DOCK YOUR SHIP & JOIN SQUADRON ★
+            </div>
+            <div className="inline-block bg-[#ff3333]/15 border border-[#ff3333] px-2 py-0.5 font-pixel text-[8px] text-[#ff3333] mb-2">
+              ● 3D BG: PART 09 // RAPTOR CLUSTER & SUPERSONIC PLASMA PLUME
             </div>
             <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
               RECRUITMENT TERMINAL

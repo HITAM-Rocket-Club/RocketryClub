@@ -119,8 +119,8 @@ Retro arcade aesthetics (Asteroids, Galaga, Space Invaders) pair naturally with 
 - [ ] Final club name (HRC vs. Astra)
 - [ ] Logo design
 - [ ] Confirm exact launch date/time (currently Oct 3, ~2 PM — tentative)
-- [ ] Faculty advisor bio/details (Motilal Sir) — photo + name only for now
-- [ ] Team leaders / core members — names, roles, subsystems, photos
+- [x] Faculty advisor bio/details (Dr. Motilal Lakavat, PhD — Associate Professor, Mechanical Engineering, HITAM; phone: +91 95503 72520, LinkedIn profile connected, high-res portrait integrated)
+- [x] Team leaders / core members — M. Mokshith Reddy (Club President & Mission Commander), Athrva Shantaram Pawar (Technical Lead), K. Laxmi Pranitha (Secretary), Shishir Chandra Polisetty (Treasurer), Jose Raj Katikala (PR Lead) — all portraits cropped and normalized, bios, emails, phone numbers, and GitHub/LinkedIn profiles integrated
 - [ ] Real technical data for checklist/HUD readouts (fuel, telemetry, recovery system specs, etc.)
 - [ ] Actual project/build details for Projects section (rocket names, classes, altitudes, motors)
 - [ ] Achievements/competition results for Achievements section

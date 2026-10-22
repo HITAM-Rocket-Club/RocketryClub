@@ -14,8 +14,11 @@ export const LaunchPadStage: React.FC = () => {
         {/* Arcade Stage 1 Banner */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
           <div>
-            <div className="font-pixel text-[10px] text-[#ff007f] mb-2 tracking-widest">
+            <div className="font-pixel text-[10px] text-[#ff007f] mb-1 tracking-widest">
               ★ STAGE 01 // LAUNCH PAD DECK ★
+            </div>
+            <div className="inline-block bg-[#00f0ff]/15 border border-[#00f0ff] px-2 py-0.5 font-pixel text-[8px] text-[#00f0ff] mb-2">
+              ● 3D BG: PART 02 // UPPER FAIRING & GANTRY UMBILICAL
             </div>
             <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
               GANTRY RAIL & VEHICLE HULL
