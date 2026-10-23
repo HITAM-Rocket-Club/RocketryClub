@@ -1,267 +1,241 @@
 import React, { useState } from 'react';
-import { Send, Gamepad2, Sparkles, Terminal } from 'lucide-react';
-import { SUB_TEAMS } from '../../data/rocketryData';
+import { ArrowRight, ExternalLink, Copy, Check, FileText } from 'lucide-react';
 import { soundFx } from '../../utils/audio';
+import { AsciiGlitchRipple } from '../ui/ascii-glitch-ripple';
+import { CLUB_METADATA } from '../../data/rocketryData';
 
 interface JoinMissionSectionProps {
   onOpenArcade: () => void;
 }
 
 export const JoinMissionSection: React.FC<JoinMissionSectionProps> = ({ onOpenArcade }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    rollNumber: '',
-    department: 'AERO / MECH',
-    year: '2nd Year',
-    subsystem: 'propulsion',
-    statement: '',
-  });
+  const [copied, setCopied] = useState(false);
+  const formUrl =
+    CLUB_METADATA.registrationFormUrl ||
+    'https://docs.google.com/forms/d/e/1FAIpQLSfTJdrssSSHRGgdXaueSd9zokNZIBEMoKkJE11rDCNyNagxIg/viewform?usp=publish-editor';
 
-  const [submitted, setSubmitted] = useState(false);
-  const [packetHash, setPacketHash] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    soundFx.playSuccess();
-    const hash = 'HRC-PILOT-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-    setPacketHash(hash);
-    setSubmitted(true);
+  const handleCopyUrl = () => {
+    try {
+      soundFx.playClick();
+    } catch {}
+    navigator.clipboard.writeText(formUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
     <section
       id="join"
-      className="relative min-h-screen flex flex-col justify-center px-4 py-24 border-t-4 border-[#00ff66]/30 select-none"
+      className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 py-20 select-none"
     >
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-        {/* Stage 8 Arcade Banner */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b-2 border-white/20">
-          <div>
-            <div className="font-pixel text-[10px] text-[#00ff66] mb-1 tracking-widest">
-              ★ STAGE 08 // DOCK YOUR SHIP & JOIN SQUADRON ★
-            </div>
-            <div className="inline-block bg-[#ff3333]/15 border border-[#ff3333] px-2 py-0.5 font-pixel text-[8px] text-[#ff3333] mb-2">
-              ● 3D BG: PART 09 // RAPTOR CLUSTER & SUPERSONIC PLASMA PLUME
-            </div>
-            <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wide">
-              RECRUITMENT TERMINAL
-            </h2>
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 bg-black border-2 border-[#00ff66] px-3.5 py-1 rounded-none mb-3 shadow-[2px_2px_0px_#000000]">
+            <span className="w-2.5 h-2.5 bg-[#00ff66] arcade-blink" />
+            <span className="font-pixel text-[8px] text-[#00ff66] uppercase tracking-wider">
+              CADET ENLISTMENT // STAGE 05 · PRE-LAUNCH INTAKE
+            </span>
           </div>
-          <div className="font-pixel text-[9px] text-[#ffe600] bg-black border-2 border-[#ffe600] px-3 py-1.5 self-start sm:self-auto">
-            STATUS: ACCEPTING CANDIDATES
+          <h2 className="font-pixel text-xl sm:text-3xl text-white tracking-wider mb-2">
+            <AsciiGlitchRipple as="span" className="hover:text-[#00ff66] transition-colors">
+              THE FUTURE STARTS HERE
+            </AsciiGlitchRipple>
+          </h2>
+          <div className="mb-3">
+            <AsciiGlitchRipple as="p" className="font-pixel text-xs sm:text-sm text-[#00f0ff] tracking-wide inline-block hover:text-white transition-colors">
+              ★ HITAM ROCKETRY CLUB · FROM IDEAS TO FLIGHT ★
+            </AsciiGlitchRipple>
+          </div>
+          <div className="font-mono-tech text-xs sm:text-sm text-slate-300 leading-relaxed bg-black/70 border border-white/20 p-4 max-w-2xl mx-auto shadow-[3px_3px_0px_#000000] text-left">
+            <span className="text-[#00ff66] font-bold">&gt; FOUNDING INVITATION:</span> &ldquo;We are not just creating a club. We are creating a platform where students from different branches come together to design, build, test and innovate.&rdquo;
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Mission Callout & Arcade Game Banner */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="arcade-box p-6">
-              <div className="flex items-center gap-2 font-pixel text-[10px] text-[#ffe600] mb-2">
-                <Terminal className="w-4 h-4" />
-                <span>MISSION SQUADRON DIRECTIVE</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Directives & Value */}
+          <div className="lg:col-span-5 space-y-5">
+            <div className="bg-[#070a12] border-2 border-white/20 rounded-none p-5 sm:p-6 shadow-[5px_5px_0px_#000000]">
+              <div className="font-pixel text-[8px] text-[#ffe600] uppercase mb-1 tracking-wider">
+                INAUGURAL COHORT INTAKE
               </div>
-              <h3 className="font-pixel text-sm sm:text-base text-white mb-3">
-                Build Real Sounding Rockets
+              <h3 className="font-pixel text-xs sm:text-sm text-white mb-2">
+                JOIN THE PLATFORM
               </h3>
-              <p className="font-mono-tech text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-                Whether you specialize in propulsion chemistry, CAD airframes, avionics PCBs, or flight simulation — there is an open flight station for you in HRC.
+              <p className="font-mono-tech text-xs sm:text-sm text-slate-300 mb-5 leading-relaxed bg-black/40 p-2.5 border border-white/10">
+                Open to all undergraduate students across all engineering branches at HITAM. No prior rocketry background is required—Phase 1 starts with hands-on foundational workshops and CAD simulations.
               </p>
 
-              <div className="space-y-2 font-pixel text-[8px] text-white/70 border-t border-white/20 pt-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-[#00ff66]">►</span>
-                  <span>NO PRIOR ROCKETRY EXP NEEDED</span>
+              <div className="space-y-2.5 font-mono-tech text-xs text-slate-200">
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff66] font-bold shrink-0">■</span>
+                  <span><strong>Mechanical:</strong> Structures, aerodynamics, CAD, materials, fabrication</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#00ff66]">►</span>
-                  <span>HANDS-ON LABORATORY SESSIONS</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff66] font-bold shrink-0">■</span>
+                  <span><strong>ECE:</strong> Sensors, avionics, telemetry, embedded systems</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[#00ff66]">►</span>
-                  <span>COMPETITION LAUNCH FLIGHTS</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff66] font-bold shrink-0">■</span>
+                  <span><strong>EEE:</strong> Power systems, electrical integration, instrumentation</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff66] font-bold shrink-0">■</span>
+                  <span><strong>CSE / IT:</strong> Flight-data software, simulation, dashboards, ground software</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#00ff66] font-bold shrink-0">■</span>
+                  <span><strong>AI / DS:</strong> Data analysis, trajectory modelling, sensor-data processing</span>
                 </div>
               </div>
             </div>
 
-            {/* Flight Simulator Promotion Box */}
-            <div className="arcade-box-yellow p-6 relative overflow-hidden">
-              <div className="flex items-center justify-between pb-2 border-b-2 border-[#ffe600] mb-3 font-pixel text-[9px]">
-                <span className="text-[#ff007f] flex items-center gap-1.5">
-                  <Gamepad2 className="w-4 h-4" /> PILOT QUALIFIER
-                </span>
-                <span className="text-[#00ff66]">EASTER EGG</span>
-              </div>
-
-              <h4 className="font-pixel text-xs sm:text-sm text-white mb-2">
-                Dock Your Ship in Asteroids Arcade
-              </h4>
-              <p className="font-mono-tech text-xs text-slate-300 mb-4">
-                Test your flight reaction speed on the 8-bit vector Asteroids flight simulator!
+            {/* Slide 8 Speaker note quote box */}
+            <div className="bg-black border-2 border-[#ffe600] rounded-none p-4 shadow-[3px_3px_0px_#000000]">
+              <span className="font-pixel text-[8px] text-[#ffe600] block mb-1 uppercase">
+                &gt; OFFICIAL CALL TO ACTION
+              </span>
+              <p className="font-mono-tech text-xs text-slate-300 leading-relaxed italic">
+                &ldquo;Back the platform, join the work, and help HITAM build responsibly. Students learning by doing, collaborating across disciplines, and representing HITAM through meaningful engineering projects.&rdquo;
               </p>
+            </div>
 
+            {/* Quick Mini-game teaser */}
+            <div className="bg-black border-2 border-[#00f0ff] rounded-none p-4 flex items-center justify-between shadow-[3px_3px_0px_#000000]">
+              <div>
+                <span className="font-pixel text-[8px] text-[#00f0ff] block mb-0.5">
+                  FLIGHT SIMULATOR
+                </span>
+                <span className="font-mono-tech text-xs text-white">Asteroid Vector Arcade</span>
+              </div>
               <button
-                onClick={() => {
-                  soundFx.playStart();
-                  onOpenArcade();
-                }}
-                className="arcade-btn arcade-btn-magenta w-full py-2.5 text-[9px] flex items-center justify-center gap-2"
+                onClick={onOpenArcade}
+                className="px-3.5 py-2 rounded-none bg-[#00f0ff] hover:bg-[#33f3ff] text-black font-pixel text-[8px] flex items-center gap-1.5 transition-transform cursor-pointer border border-white shadow-[2px_2px_0px_#000000] active:translate-x-0.5 active:translate-y-0.5"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>LAUNCH ASTEROIDS ARCADE</span>
+                <span>LAUNCH</span>
+                <ArrowRight className="w-3 h-3" />
               </button>
             </div>
           </div>
 
-          {/* Right Column: Ingestion Form */}
-          <div className="lg:col-span-7 arcade-box-cyan p-6 sm:p-8">
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-4 font-pixel text-[9px]">
-                <div className="flex items-center justify-between pb-3 border-b-2 border-[#00f0ff] mb-4">
-                  <span className="text-[#ffe600]">
-                    CADET INGESTION PROTOCOL
+          {/* Right Column: Official Google Registration Form Terminal */}
+          <div className="lg:col-span-7">
+            <div className="bg-[#070a12] border-2 border-white/20 rounded-none p-5 sm:p-7 shadow-[6px_6px_0px_#000000] flex flex-col justify-between">
+              <div>
+                {/* Header Status Bar */}
+                <div className="flex items-center justify-between pb-3 border-b-2 border-white/10 mb-5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 bg-[#00ff66] arcade-blink" />
+                    <span className="font-pixel text-[8px] text-[#00ff66] uppercase tracking-wider">
+                      OFFICIAL INTAKE // LIVE PORTAL
+                    </span>
+                  </div>
+                  <span className="font-mono-tech text-[10px] text-white/50">
+                    PLATFORM: GOOGLE FORMS
                   </span>
-                  <span className="text-white/50 text-[8px]">TERMINAL 01</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-white/70 block mb-1">
-                      CANDIDATE FULL NAME *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Neil Armstrong"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
+                {/* Logo & Form Announcement */}
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6 bg-black/70 p-4 border border-white/15 shadow-[3px_3px_0px_#000000]">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white border-2 border-[#00f0ff] p-1 shadow-[3px_3px_0px_#000000] shrink-0 flex items-center justify-center">
+                    <img
+                      src="/logo.png"
+                      alt="HITAM Rocketry Club Logo"
+                      className="w-full h-full object-contain"
                     />
                   </div>
-
-                  <div>
-                    <label className="text-white/70 block mb-1">
-                      COLLEGE EMAIL *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="rollno@hitam.org"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
-                    />
+                  <div className="text-center sm:text-left">
+                    <span className="font-pixel text-[8px] text-[#ffe600] uppercase tracking-wider block mb-1">
+                      GENESIS RECRUITMENT DRIVE
+                    </span>
+                    <h3 className="font-pixel text-sm sm:text-base text-white leading-tight mb-1.5">
+                      OFFICIAL CADET REGISTRATION
+                    </h3>
+                    <p className="font-mono-tech text-xs text-slate-300 leading-relaxed">
+                      Register to join the founding cohort of the HITAM Rocketry Club. All applications are officially processed through the central university club enrollment form.
+                    </p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <label className="text-white/70 block mb-1">ROLL NUMBER</label>
-                    <input
-                      type="text"
-                      placeholder="23X81A0301"
-                      value={formData.rollNumber}
-                      onChange={(e) => setFormData({ ...formData, rollNumber: e.target.value })}
-                      className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
-                    />
+                {/* Specs / Checklist */}
+                <div className="space-y-2.5 mb-6 font-mono-tech text-xs">
+                  <div className="bg-black/50 p-2.5 border border-white/10 flex items-start gap-2.5">
+                    <span className="font-pixel text-[8px] text-[#00f0ff] bg-black px-1.5 py-0.5 border border-[#00f0ff]/40 shrink-0">
+                      01
+                    </span>
+                    <span className="text-slate-300">
+                      <strong className="text-white">Open to all departments:</strong> Mechanical, ECE, EEE, CSE, IT, AI/DS &amp; allied engineering disciplines.
+                    </span>
                   </div>
-
-                  <div>
-                    <label className="text-white/70 block mb-1">DEPARTMENT</label>
-                    <select
-                      value={formData.department}
-                      onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                      className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
-                    >
-                      <option value="AERO / MECH">Mechanical / Aero</option>
-                      <option value="ECE / EEE">ECE / Electrical</option>
-                      <option value="CSE / IT">CSE / Information Tech</option>
-                      <option value="AI / ML / DS">AI & Data Science</option>
-                      <option value="OTHER">Other</option>
-                    </select>
+                  <div className="bg-black/50 p-2.5 border border-white/10 flex items-start gap-2.5">
+                    <span className="font-pixel text-[8px] text-[#ffe600] bg-black px-1.5 py-0.5 border border-[#ffe600]/40 shrink-0">
+                      02
+                    </span>
+                    <span className="text-slate-300">
+                      <strong className="text-white">Zero prior rocketry experience needed:</strong> Phase 1 includes hands-on CAD workshops, aerodynamics, and simulation fundamentals.
+                    </span>
                   </div>
-
-                  <div>
-                    <label className="text-white/70 block mb-1">YEAR</label>
-                    <select
-                      value={formData.year}
-                      onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                      className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
-                    >
-                      <option value="1st Year">1st Year</option>
-                      <option value="2nd Year">2nd Year</option>
-                      <option value="3rd Year">3rd Year</option>
-                      <option value="4th Year">4th Year</option>
-                    </select>
+                  <div className="bg-black/50 p-2.5 border border-white/10 flex items-start gap-2.5">
+                    <span className="font-pixel text-[8px] text-[#00ff66] bg-black px-1.5 py-0.5 border border-[#00ff66]/40 shrink-0">
+                      03
+                    </span>
+                    <span className="text-slate-300">
+                      <strong className="text-white">Direct cohort notifications:</strong> Receive orientation dates, workshop schedules, and team induction details directly via email/phone.
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <label className="text-white/70 block mb-1">
-                    DESIRED SUB-TEAM SPECIALIZATION *
-                  </label>
-                  <select
-                    value={formData.subsystem}
-                    onChange={(e) => setFormData({ ...formData, subsystem: e.target.value })}
-                    className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600]"
-                  >
-                    {SUB_TEAMS.map((t) => (
-                      <option key={t.id} value={t.id}>
-                        [{t.code}] {t.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              {/* Action Buttons */}
+              <div className="space-y-3 pt-2">
+                <a
+                  href={formUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-crosshair-target
+                  onClick={() => {
+                    try { soundFx.playCoin(); } catch {}
+                  }}
+                  onMouseEnter={() => {
+                    try { soundFx.playBlip(950, 0.02); } catch {}
+                  }}
+                  className="w-full py-4 px-5 rounded-none bg-[#00ff66] hover:bg-[#33ff88] text-black font-pixel text-xs sm:text-sm flex items-center justify-center gap-3 transition-transform cursor-pointer border-3 border-white shadow-[5px_5px_0px_#000000] active:translate-x-0.5 active:translate-y-0.5 group pointer-events-auto"
+                >
+                  <FileText className="w-4 h-4 text-black shrink-0" />
+                  <span className="tracking-wide">[ LAUNCH GOOGLE REGISTRATION FORM ]</span>
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+                </a>
 
-                <div>
-                  <label className="text-white/70 block mb-1">
-                    STATEMENT OF MOTIVATION
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us what you want to research or build..."
-                    value={formData.statement}
-                    onChange={(e) => setFormData({ ...formData, statement: e.target.value })}
-                    className="w-full p-2.5 bg-black border-2 border-white/20 text-white font-mono-tech text-xs focus:outline-none focus:border-[#ffe600] resize-none"
-                  />
-                </div>
-
-                <div className="pt-2">
+                {/* URL preview & Copy Button */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-2 bg-black p-2.5 border border-white/20 text-xs font-mono-tech">
+                  <span className="text-white/60 text-[11px] truncate max-w-full sm:max-w-[320px]">
+                    docs.google.com/forms/...
+                  </span>
                   <button
-                    type="submit"
-                    className="arcade-btn arcade-btn-yellow w-full py-3.5 text-[10px] flex items-center justify-center gap-2 hover:scale-[1.02]"
+                    type="button"
+                    onClick={handleCopyUrl}
+                    className="shrink-0 px-2.5 py-1 bg-black hover:bg-white/10 text-[#00f0ff] border border-[#00f0ff]/40 font-pixel text-[8px] flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <Send className="w-4 h-4 fill-black" />
-                    <span>TRANSMIT MISSION CANDIDACY</span>
+                    {copied ? (
+                      <>
+                        <Check className="w-3 h-3 text-[#00ff66]" />
+                        <span className="text-[#00ff66]">COPIED!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>COPY LINK</span>
+                      </>
+                    )}
                   </button>
                 </div>
-              </form>
-            ) : (
-              <div className="py-12 flex flex-col items-center justify-center text-center">
-                <div className="text-4xl mb-3">🚀</div>
-                <div className="font-pixel text-xs text-[#00ff66] mb-2 uppercase">
-                  TRANSMISSION CONFIRMED!
-                </div>
-                <h3 className="font-pixel text-base text-white mb-3">
-                  Welcome aboard, Cadet {formData.fullName}!
-                </h3>
-                <p className="font-mono-tech text-xs text-slate-300 max-w-md mb-6 leading-relaxed">
-                  Assigned Flight Hash:{' '}
-                  <span className="text-[#ffe600] font-bold font-pixel text-[10px]">{packetHash}</span>.
-                  Your dossier has been logged into the Oct 03 flight operations briefing.
-                </p>
-
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="arcade-btn py-2 px-4 text-[9px]"
-                >
-                  NEW APPLICATION
-                </button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default JoinMissionSection;

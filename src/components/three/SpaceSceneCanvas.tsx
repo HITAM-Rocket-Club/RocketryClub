@@ -247,7 +247,7 @@ export const SpaceSceneCanvas: React.FC<SpaceSceneCanvasProps> = ({ scrollProgre
           className="fixed pointer-events-none z-50 transform -translate-x-1/2 -translate-y-full mb-3"
           style={{ left: hoveredTag.screenX, top: hoveredTag.screenY - 12 }}
         >
-          <div className="liquid-glass-regular px-3 py-2 rounded-lg text-xs font-mono-tech border border-amber-500/40 shadow-xl backdrop-blur-md">
+          <div className="bg-[#070a12] px-3 py-2 rounded-none text-xs font-mono-tech border-2 border-amber-400 shadow-[3px_3px_0px_#000000]">
             <div className="flex items-center gap-2 text-amber-400 font-semibold mb-1">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
               {hoveredTag.text.designation}

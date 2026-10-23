@@ -31,14 +31,15 @@ export const MissionBriefingTutorialModal: React.FC<MissionBriefingTutorialModal
   const slides = [
     {
       step: '01 / 04',
-      badge: 'ABOUT HRC & SCROLL',
-      title: 'WHAT WE DO & THE 3D SCROLL LOGIC',
+      badge: 'OFFICIAL CLUB LAUNCH',
+      title: 'FROM IDEAS TO FLIGHT',
       icon: <Rocket className="w-6 h-6 text-[#00f0ff]" />,
-      lead: 'What is HITAM Rocketry Club (HRC / Astra)?',
-      body: 'HRC is the student aerospace engineering division at Hyderabad Institute of Technology and Management (HITAM). We design, build, test, and launch real high-power sounding rockets. Our 25+ student engineers research 4 core pillars: (1) Sounding Rocket Airframes & Dual Recovery, (2) Solid & Hybrid Propulsion Static Test Benches, (3) Custom PCB Flight Computers & LoRa Telemetry, and (4) Intercollegiate Aerospace Competitions.',
+      lead: 'HITAM Rocketry Club — Preparing for Official Launch',
+      body: 'We are not just creating a club. We are creating a platform where students from different branches come together to design, build, test and innovate. The rocket is our shared system uniting Mechanical, ECE, EEE, CSE/IT, and AI/Data Science on one platform for hands-on learning, experimentation, teamwork, and innovation.',
       bullets: [
-        'Why does scrolling move the rocket? The website is an interactive vertical CAD schematic. Scrolling down takes you on a journey through the 9 stages—from the Cockpit/Nosecone at the top down to the Engines on the launchpad.',
-        'Open to all branches: No prior aerospace background needed—we provide practical training in CAD, simulation, electronics, and lab safety.',
+        'Faculty Facilitator: Dr. Motilal Lakavat, HOD, Mechanical Engineering, HITAM.',
+        'Core Philosophy: Classroom theory becomes engineering when students build.',
+        'Open to all branches: No prior aerospace background required—foundational workshops provided.',
       ],
       highlight: 'Scroll down to travel through stages // Scroll up to ascend toward orbit.',
       accent: 'border-[#00f0ff] shadow-[0_0_20px_rgba(0,240,255,0.25)]',
@@ -73,11 +74,11 @@ export const MissionBriefingTutorialModal: React.FC<MissionBriefingTutorialModal
     },
     {
       step: '04 / 04',
-      badge: 'FLIGHT SQUADRON',
-      title: 'RETRO ARCADE & CLUB RECRUITMENT',
+      badge: 'CADET ENLISTMENT',
+      title: 'PRE-RELEASE INTAKE & SIMULATOR',
       icon: <Gamepad2 className="w-6 h-6 text-[#00ff66]" />,
-      lead: 'Test your pilot reflexes and join the HRC rocketry team.',
-      body: 'HITAM Rocketry Club (HRC) designs, builds, and launches real high-powered sounding rockets. Try the retro Asteroids Flight Simulator by clicking [PLAY] in the top navigation or in the hero deck. When you reach the bottom (Stage 08), fill out the Cadet Ingestion form to join our Propulsion, Avionics, Airframes, or Flight Simulation divisions.',
+      lead: 'Students leave with proof they can build.',
+      body: 'HITAM Rocketry Club is currently in its pre-release / launch preparation phase. Test your pilot reflexes in the retro Asteroids Flight Simulator, and submit your application at the bottom (Stage 05) to enlist in our inaugural founding cohort across Mechanical, ECE, EEE, CSE/IT, and AI/Data Science.',
       highlight: 'No prior rocketry experience needed — hands-on student aerospace training.',
       accent: 'border-[#00ff66] shadow-[0_0_20px_rgba(0,255,102,0.25)]',
       color: '#00ff66',
@@ -119,10 +120,10 @@ export const MissionBriefingTutorialModal: React.FC<MissionBriefingTutorialModal
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn select-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 animate-fadeIn select-none">
       {/* Retro Arcade Modal Cabinet Container */}
       <div
-        className={`relative w-full max-w-2xl bg-[#090d16] border-2 ${current.accent} p-4 sm:p-6 flex flex-col justify-between max-h-[92vh] overflow-y-auto shadow-2xl transition-all duration-300`}
+        className={`relative w-full max-w-2xl bg-[#090d16] border-2 ${current.accent} p-4 sm:p-6 flex flex-col justify-between max-h-[92vh] overflow-y-auto shadow-[8px_8px_0px_#000000] transition-all duration-150`}
       >
         {/* Top Header Marquee Bar */}
         <div className="flex items-center justify-between pb-3 mb-4 border-b-2 border-white/20">

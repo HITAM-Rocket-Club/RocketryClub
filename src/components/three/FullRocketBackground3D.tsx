@@ -221,6 +221,7 @@ export const FullRocketBackground3D: React.FC<FullRocketBackground3DProps> = ({
 
     // 9. Build Master Rocket Assembly
     const assembly = buildFullMultiStageRocket();
+    assembly.rootGroup.position.y = -1.5;
     assemblyRef.current = assembly;
     scene.add(assembly.rootGroup);
 

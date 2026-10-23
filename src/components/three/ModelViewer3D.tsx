@@ -372,7 +372,7 @@ export const ModelViewer3D: React.FC<ModelViewer3DProps> = ({
     >
       {/* Loading Scan Overlay */}
       {loading && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/90 p-4">
           <div className="font-pixel text-[11px] text-[#00f0ff] mb-3 arcade-blink tracking-widest">
             INITIALIZING 3D CAD VECTOR STREAM...
           </div>

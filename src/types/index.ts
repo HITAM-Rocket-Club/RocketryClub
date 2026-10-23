@@ -89,3 +89,48 @@ export interface ClubPillar {
   badgeColor: string;
 }
 
+export interface BranchContribution {
+  id: string;
+  branch: string;
+  code: string;
+  contributions: string[];
+  subsystemRole: string;
+  deliverables: string[];
+  color: string;
+}
+
+export interface CapabilityPhase {
+  id: string;
+  phase: string;
+  subtitle: string;
+  activities: string[];
+  safetyCheckpoint: string;
+  checkpointDetail: string;
+  color: string;
+}
+
+export interface RoadmapYear {
+  id: string;
+  year: string;
+  title: string;
+  tagline: string;
+  deliverables: string[];
+  status: string;
+  badgeColor: string;
+}
+
+export interface CompoundingValue {
+  id: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  color: string;
+}
+
+export interface StudentTakeaway {
+  id: string;
+  category: string;
+  summary: string;
+  skills: string[];
+  badgeColor: string;
+}

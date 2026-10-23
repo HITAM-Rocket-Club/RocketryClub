@@ -48,60 +48,79 @@
   image-rendering: crisp-edges;
 }
 
-/* Retro Arcade Cabinet Bezel / Border (Translucent Glass for 3D Background Visibility) */
+/* Authentic Retro Aerospace & Arcade Panels (No Glassmorphism) */
 .arcade-box {
-  background: rgba(10, 10, 15, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 4px solid #ffffff;
-  box-shadow: 
-    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.6),
-    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
-    0 0 15px rgba(0, 240, 255, 0.2);
+  background: #070a12;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .arcade-box-cyan {
-  background: rgba(8, 13, 20, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 4px solid #00f0ff;
-  box-shadow: 
-    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.7),
-    inset 4px 4px 0px 0px rgba(0, 240, 255, 0.4),
-    0 0 16px rgba(0, 240, 255, 0.35);
+  background: #050c14;
+  border: 2px solid #00f0ff;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .arcade-box-magenta {
-  background: rgba(20, 8, 16, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 4px solid #ff007f;
-  box-shadow: 
-    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.7),
-    inset 4px 4px 0px 0px rgba(255, 0, 127, 0.4),
-    0 0 16px rgba(255, 0, 127, 0.35);
+  background: #14050e;
+  border: 2px solid #ff007f;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .arcade-box-yellow {
-  background: rgba(20, 18, 8, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 4px solid #ffe600;
-  box-shadow: 
-    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.7),
-    inset 4px 4px 0px 0px rgba(255, 230, 0, 0.4),
-    0 0 16px rgba(255, 230, 0, 0.35);
+  background: #141205;
+  border: 2px solid #ffe600;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .arcade-box-green {
-  background: rgba(8, 20, 12, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 4px solid #00ff66;
-  box-shadow: 
-    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.7),
-    inset 4px 4px 0px 0px rgba(0, 255, 102, 0.4),
-    0 0 16px rgba(0, 255, 102, 0.35);
+  background: #051408;
+  border: 2px solid #00ff66;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+/* Retro Aerospace Chassis & Cards */
+.retro-chassis {
+  background: #070a12;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
+  position: relative;
+}
+
+.retro-chassis:hover {
+  border-color: #00f0ff;
+  box-shadow: 4px 4px 0px 0px #00f0ff;
+}
+
+.retro-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.2;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #000000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+/* Alias liquid-glass-regular to retro solid frame to eliminate any lingering frosted glass */
+.liquid-glass-regular {
+  background: #070a12 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 0px !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
 }
 
 /* Arcade Pixel Button */

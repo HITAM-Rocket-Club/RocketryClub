@@ -369,7 +369,7 @@ export const BackgroundRocket3D: React.FC<BackgroundRocket3DProps> = ({
     >
       {/* Loading Vector Pulse */}
       {loading && (
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none bg-black/40 backdrop-blur-[2px]">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none bg-black/60">
           <div className="font-pixel text-[10px] text-[#00f0ff] mb-2 arcade-blink tracking-widest">
             INITIALIZING 3D ROCKET BACKGROUND VECTOR...
           </div>

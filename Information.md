@@ -5,7 +5,7 @@
 | Field | Details |
 |---|---|
 | **Club Name** | HRC (HITAM Rocketry Club) — alternative name "Astra" being considered. Not finalized yet. |
-| **Logo** | Not finalized. Use the group/club icon placeholder for now, or a temporary icon of choice. |
+| **Logo** | Finalized official emblem: "ROCKETRY CLUB HITAM" with ascending rocket, green plume & planetary orbit (/logo.png). |
 | **Launch Date** | Site launch targeted for **Oct 3rd, ~2:00 PM** (tentative) |
 | **Faculty** | Motilal Sir — placeholder with photo + name for now, more details to be added later |
 | **Team Leaders / Core Members** | Same as above — placeholder photo + name per person until more info is available |
@@ -117,10 +117,10 @@ Retro arcade aesthetics (Asteroids, Galaga, Space Invaders) pair naturally with 
 ## Open Items / TBD
 
 - [ ] Final club name (HRC vs. Astra)
-- [ ] Logo design
-- [ ] Confirm exact launch date/time (currently Oct 3, ~2 PM — tentative)
+- [x] Logo design — Official emblem "ROCKETRY CLUB HITAM" integrated into navigation bar, hero emblem, footer, and cadet enrollment terminal
+- [x] Cadet Registration Form — Linked directly to official Google Form (https://docs.google.com/forms/d/e/1FAIpQLSfTJdrssSSHRGgdXaueSd9zokNZIBEMoKkJE11rDCNyNagxIg/viewform?usp=publish-editor)
 - [x] Faculty advisor bio/details (Dr. Motilal Lakavat, PhD — Associate Professor, Mechanical Engineering, HITAM; phone: +91 95503 72520, LinkedIn profile connected, high-res portrait integrated)
-- [x] Team leaders / core members — M. Mokshith Reddy (Club President & Mission Commander), Athrva Shantaram Pawar (Technical Lead), K. Laxmi Pranitha (Secretary), Shishir Chandra Polisetty (Treasurer), Jose Raj Katikala (PR Lead) — all portraits cropped and normalized, bios, emails, phone numbers, and GitHub/LinkedIn profiles integrated
+- [x] Team leaders / core members — M. Mokshith Reddy (Club President & Mission Commander), Divyoshita Dulam (Vice President), Athrva Shantaram Pawar (Technical Lead), K. Laxmi Pranitha (Secretary), Shishir Chandra Polisetty (Treasurer), Jose Raj Katikala (PR Lead) — all portraits cropped and normalized, bios, emails, phone numbers, and GitHub/LinkedIn profiles integrated
 - [ ] Real technical data for checklist/HUD readouts (fuel, telemetry, recovery system specs, etc.)
 - [ ] Actual project/build details for Projects section (rocket names, classes, altitudes, motors)
 - [ ] Achievements/competition results for Achievements section
